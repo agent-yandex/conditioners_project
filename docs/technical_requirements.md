@@ -42,7 +42,7 @@
 * Бэкенд:
     * Python 3.10
     * SQLAlchemy ORM
-    * Фреймворк FastAPI
+    * Фреймворк Flask
     * БД - встраиваемая
 * Фронтенд:
     * HTML & CSS
