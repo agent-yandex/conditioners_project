@@ -8,7 +8,18 @@ from data.statuses import Status
 
 from config import FLASK_KEY, DB_NAME
 
+from complete_db import add_problems_db, add_statuses_db, add_admin_db
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = FLASK_KEY
 
-db_session.global_init(DB_NAME)
+
+def complete_initial_db():
+    '''начальное заполнение дб'''
+    db_session.global_init(DB_NAME)
+
+    add_problems_db()
+    add_statuses_db()
+    add_admin_db()
+
+
