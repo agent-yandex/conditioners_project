@@ -8,11 +8,11 @@ class Request(SqlAlchemyBase):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     status_id = Column(Integer, ForeignKey("Statuses.id"), nullable=False)
-    user_id = Column(Integer, ForeignKey("Users.id"), nullable=False)
-    problem_id = Column(Integer, ForeignKey("Problems.id"), nullable=False)
-    other_info = Column(String, nullable=True)
+    user_name = Column(String, nullable=False)
+    user_number = Column(Integer, nullable=False)
+    city_id = Column(Integer, ForeignKey("Cities.id"))
+    problem = Column(String, nullable=False)
     date = Column(DateTime, default=datetime.datetime.now().strftime("%d-%m-%Y %H"))
 
+    city = orm.relation("City")
     status = orm.relation("Status")
-    user = orm.relation("User")
-    problem = orm.relation("Problem")

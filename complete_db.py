@@ -1,25 +1,23 @@
 from data import db_session
-from data.users import User
-from data.problems import Problem
+from data.admins import Admin
+from data.cities import City
 from data.statuses import Status
 
-from config import ADMIN_NAME, ADMIN_NUM, ADMIN_PASS
+from config import ADMIN_LOGIN, ADMIN_PASS
 
 # файл, заполняющий необходимые начальные данные для бд
 
-
-def add_problems_db():
-    '''заполнение таблицы Problems'''
+def add_cities_db():
+    '''заполнение таблицы Cities'''
     db_sess = db_session.create_session()
 
-    data_problems = ["Проблема1", "Проблема2"]
-    for problem in data_problems:
-        el_db = Problem()
-        el_db.problem = problem
+    data_cities = ["Краснодар", "Сочи", "Адлер"]
+    for city in data_cities:
+        el_db = City()
+        el_db.city = city
         db_sess.add(el_db)
 
     db_sess.commit()
-
 
 def add_statuses_db():
     '''заполнение таблицы Statuses'''
@@ -38,11 +36,9 @@ def add_admin_db():
     '''добавление админа в бд'''
     db_sess = db_session.create_session()
 
-    el_user = User()
-    el_user.name = ADMIN_NAME
-    el_user.number = ADMIN_NUM
-    el_user.set_password(ADMIN_PASS)
-    el_user.type = 1
-    db_sess.add(el_user)
+    el_admin = Admin()
+    el_admin.login = ADMIN_LOGIN
+    el_admin.set_password(ADMIN_PASS)
+    db_sess.add(el_admin)
 
     db_sess.commit()

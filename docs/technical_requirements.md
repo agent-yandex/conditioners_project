@@ -55,8 +55,17 @@
         <td>status_id</td>
         <td>user_name</td>
         <td>user_number</td>
+        <td>city_id</td>
         <td>problem</td>
         <td>date</td>
+    </tr>
+</table>
+
+<table>
+    <caption>Таблица Cities</caption>
+    <tr>
+        <td>id</td>
+        <td>city</td>
     </tr>
 </table>
 
